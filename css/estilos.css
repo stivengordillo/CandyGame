@@ -10,6 +10,10 @@ body{
   background-image: url('../image/background.jpg');
   background-size: cover;
 }
+img{
+  max-width:80%;
+
+}
 
 .main-container{
   width: 90%;
@@ -34,6 +38,15 @@ body{
   height: 700px;
   display: flex;
   flex-flow: row wrap;
+  overflow:hidden;
+}
+.panel-tablero div {
+  position:relative;
+}
+.panel-tablero div img{
+  top:-120px;
+  position:absolute;
+  transition:1s all;
 }
 
 .panel-score{
