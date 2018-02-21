@@ -1,11 +1,12 @@
 $(document).ready()
 {
-	candys      = 7;
-	colums      = 7;
-	colHeight   = $('.panel-tablero .col-1').height();
-	candyHeight = colHeight/candys;
-	candyNumber = 0;
-	posCandy    = 0;
+	candys       = 7;
+	colums       = 7;
+	colHeight    = $('.panel-tablero .col-1').height();
+	candyHeight  = colHeight/candys;
+	candyNumber  = 0;
+	posCandy     = colHeight;
+	timePosCandy = 0;
 	console.log(candyHeight)
 	for(i=1; i<=colums; i++){
 		for(k=1; k<=candys; k++){
@@ -20,19 +21,21 @@ $(document).ready()
 			//Creo los dulces aleatoriamente
 			
 			if(candyNumber == 49 ){
-				for(i=0; i<=colums; i++){
+				for(i=1; i<=colums; i++){
 					
-					for(k=1; k<=candys; k++){
-						if(k==candys){
-							posCandy = 0;
+					for(k=1; k<=candys+1; k++){
+						if(k==candys+1){
+							posCandy     = colHeight;
+							timePosCandy = 0;
 						}else{
-							posCandy += candyHeight;
+							posCandy     -= candyHeight;
+							timePosCandy += 500;
 						}
 						console.log(posCandy);
 						$("#col-"+i+"-"+k).animate(
 							{
 								top: posCandy
-							},1000
+							},timePosCandy
 						)
 					}
 				}
